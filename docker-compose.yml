@@ -1,128 +1,17 @@
-#version: '3'
-#services:
-#  myapp-main:
-#    image: golf-membership-api:latest
-#    ports:
-#      - 8088:8080
-#    environment:
-#      - spring.datasource.url=jdbc:mysql://host.docker.internal:3306/golf_club_db
-
-#services:
-#  app:
-#    build: .
-#    ports:
-#      - "8088:8080"
-#    depends_on:
-#      - mysql-db
-#    environment:
-#      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql-db:3306/golf_club_db?useSSL=false&allowPublicKeyRetrieval=true
-#      - SPRING_DATASOURCE_USERNAME=root
-#      - SPRING_DATASOURCE_PASSWORD=Keyin208
-#
-#  mysql-db:
-#    image: golf-membership-api:latest
-#    environment:
-#      - MYSQL_ROOT_PASSWORD=Keyin208
-#      - MYSQL_DATABASE=golf_club_db
-#    volumes:
-##      - mysql-data:/var/lib/mysql
-#      - ./src/main/resources/schema.sql:/docker-entrypoint-initdb.d/1-schema.sql
-#      - ./src/main/resources/data.sql:/docker-entrypoint-initdb.d/2-data.sql
-#volumes:
-#  mysql-data:
-
-#services:
-#  app:
-#    build: .
-#    ports:
-#      - "8088:8080"
-#    depends_on:
-#      - mysql
-#
-#  mysql:
-#    image: mysql:8.0
-#    container_name: mysql-container1
-#    environment:
-#      MYSQL_ROOT_PASSWORD: Keyin208
-#      MYSQL_DATABASE: golfdb
-#    ports:
-#      - "3307:3306"
-#    volumes:
-#      - db_data:/var/lib/mysql
-#    command: --default-authentication-plugin=mysql_native_password
-#
-#volumes:
-#  db_data:
-
-
-#services:
-#  mysql:
-#    image: mysql:8.0
-#    environment:
-#      MYSQL_ROOT_PASSWORD: Keyin208
-#      MYSQL_DATABASE: golfdb  # Automatically create 'golfdb' database
-#    volumes:
-#      - golfclubmembership_mysql-data:/var/lib/mysql  # Persistent data storage for MySQL
-#      - ./src/main/resources:/docker-entrypoint-initdb.d  # Mount 'resources' directory to MySQL container
-#    ports:
-#      - "3307:3306"  # Expose MySQL port for connection
-#
-#volumes:
-#  golfclubmembership_mysql-data:
-#
-
-
-
-#    services:
-#      mysql:
-#        image: mysql:8.0
-#        container_name: mysql-container
-#        environment:
-#          MYSQL_ROOT_PASSWORD: Keyin208
-#          MYSQL_DATABASE: golfdb
-#          MYSQL_USER: user
-#          MYSQL_PASSWORD: userpassword
-#        ports:
-#          - "3306:3306"
-#        volumes:
-#          - mysql-data:/var/lib/mysql
-#        networks:
-#          - app-network
-#
-#      app:
-#        build: .
-#        container_name: app-container
-#        depends_on:
-#          - mysql
-#        environment:
-#          SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/golfdb
-#          SPRING_DATASOURCE_USERNAME: user
-#          SPRING_DATASOURCE_PASSWORD: userpassword
-#        ports:
-#          - "8080:8080"
-#        networks:
-#          - app-network
-#
-#    networks:
-#      app-network:
-#        driver: bridge
-#
-#    volumes:
-#      mysql-data:
 
 services:
   mysql:
     image: mysql:8.0
     container_name: mysql-container
     environment:
-      MYSQL_ROOT_PASSWORD: Keyin208        # Password for the root MySQL user
-      MYSQL_DATABASE: golfdb               # The database name to create
-      MYSQL_USER: user                      # Non-root user for application access
-      MYSQL_PASSWORD: userpassword         # Password for the non-root user
+      MYSQL_ROOT_PASSWORD: Keyin208
+      MYSQL_DATABASE: golfdb
+      MYSQL_USER: user
+      MYSQL_PASSWORD: userpassword
     ports:
-      - "3307:3306"                        # Expose MySQL port to the host
+      - "3307:3306"
     volumes:
-      - mysql-data:/var/lib/mysql          # Persist MySQL data
+      - mysql-data:/var/lib/mysql
     networks:
       - app-network
 
