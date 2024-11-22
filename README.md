@@ -19,11 +19,11 @@ POST:http://localhost:8088/api/members
 - Add a tournament
 POST:http://localhost:8088/api/tournaments
 - Add member to a tournament
-POST:http://localhost:8088/api/tournaments/{tournamentid}/members/{memberid}
+POST:http://localhost:8088/api/tournaments/{tournament_id}/members/{member_id}
 - Search for members by name
 GET:http://localhost:8088/api/members/search?name=John
 - Search for tournaments by location
-GET:http://localhost:8088/api/tournaments/search?location=New-York
+GET:http://localhost:8088/api/tournaments/search?location=Greenfield Golf Club
 - Get all members:
 GET:http://localhost:8088/api/members
 - Get all tournaments:
