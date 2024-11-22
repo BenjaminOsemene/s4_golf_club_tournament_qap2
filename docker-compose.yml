@@ -22,10 +22,10 @@ services:
       - mysql
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/golfdb
-      SPRING_DATASOURCE_USERNAME: root        # Username for connecting to MySQL
-      SPRING_DATASOURCE_PASSWORD: Keyin208   # Password for connecting to MySQL
+      SPRING_DATASOURCE_USERNAME: root        
+      SPRING_DATASOURCE_PASSWORD: Keyin208   
     ports:
-      - "8088:8080"                          # Expose application port
+      - "8088:8080"                          
     networks:
       - app-network
 
