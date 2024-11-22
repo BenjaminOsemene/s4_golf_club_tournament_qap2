@@ -1,9 +1,4 @@
 
-DROP TABLE IF EXISTS tournament_participants;
-DROP TABLE IF EXISTS tournament;
-DROP TABLE IF EXISTS member;
-
-
 CREATE TABLE member (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100),
