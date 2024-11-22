@@ -1,38 +1,4 @@
-//package com.keyin.golfclubmembership.service;
-//
-//import com.keyin.golfclubmembership.model.Member;
-//import com.keyin.golfclubmembership.repository.MemberRepository;
-//import lombok.RequiredArgsConstructor;
-//import org.springframework.stereotype.Service;
-//
-//import java.time.LocalDate;
-//import java.util.ArrayList;
-//import java.util.List;
-//
-//@Service
-//@RequiredArgsConstructor
-//public class MemberService {
-//    private final MemberRepository memberRepository;
-//
-//    public Member addMember(Member member) {
-//        return memberRepository.save(member);
-//    }
-//
-//    public List<Member> getAllMembers() {
-//        return memberRepository.findAll();
-//    }
-//
-//    public List<Member> searchMembers(String name, String phoneNumber, LocalDate startDate) {
-//        if (name != null) {
-//            return memberRepository.findByNameContaining(name);
-//        } else if (phoneNumber != null) {
-//            return memberRepository.findByPhoneNumber(phoneNumber);
-//        } else if (startDate != null) {
-//            return memberRepository.findByStartDateBetween(startDate, startDate.plusDays(1));
-//        }
-//        return new ArrayList<>();
-//    }
-//}
+
 package com.keyin.golfclubmembership.service;
 
 import com.keyin.golfclubmembership.model.Member;
